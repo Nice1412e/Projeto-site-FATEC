@@ -25,27 +25,35 @@
   </nav>
 </header>
 
-<!-- SOBRE MIM -->
+<!--Sobre mim-->
 <section id="sobre">
   <div class="sobre-inner">
-    <div class="foto-card">
-      <div class="foto-placeholder">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
-          <circle cx="12" cy="8" r="4"/>
-          <path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/>
-        </svg>
-      </div>
-      <span class="foto-label">Sua foto</span>
+ 
+    <!--Foto-->
+    <div class="foto-col">
+      <img src="imagens/foto 2-sobre-mim.jpeg" alt="minha foto">
     </div>
+ 
+    <!--Texto -->
+    <div class="bio-col">
+       <span class="saudacao">Olá,</span>
+      <p class="nome-destaque">
+        me chamo <strong>Cristiano Viana</strong> e sou <strong>psicólogo clínico</strong>.
+      </p>
 
-    <div class="bio-card">
-      <p>Olá, me chamo Cristiano Viana de Lima, e sou psicólogo clínico, como você está?<br>
-        Venho estudando a mais de 22 anos além da graduação - entre especializações e Mestrado em psicologia - buscando qualificar minha escuta e capacidade de ajudar quem me procura. <br>
-        Pensei neste espaço como um lugar de ‘pouso’, de parada para ser escutado (e se ouvir), mas também um lugar de movimento e reorganização. <br>
-        Tenho como missão pessoal ajudar pessoas - jovens, adultos e casal e famílias - a alcançar bem-estar, saúde mental e um lugar de ressignificar traumas, angústias e sofrimentos da vida; <br>
-        Acredito na transformação por meio de um diálogo qualificado, ético e que valorize os saberes que as pessoas já têm e trazem consigo sobre suas vidas e seus valores; <br>
-        É por isso que me interesso em ouvir as histórias das pessoas por entender que é ali que suas vidas - sofrimentos mas também sonhos - se constroem. <br>
-        Entre em contato e agende um horário.</p>
+      <p>
+        Venho estudando a mais de 22 anos além da graduação - entre especializações e Mestrado em psicologia - buscando qualificar minha escuta e capacidade de ajudar quem me procura.
+      </p>
+ 
+      <p>
+        Pensei neste espaço como um lugar de "pouso", de parada para ser escutado (e se ouvir), mas também um lugar de movimento e reorganização. Tenho como missão pessoal ajudar pessoas - jovens, adultos, casais e famílias - a alcançar bem-estar, saúde mental e um lugar de ressignificar traumas, angústias e sofrimentos da vida;
+      </p>
+ 
+      <p>
+         Acredito na transformação por meio de um diálogo qualificado, ético e que valorize os saberes que as pessoas já têm e trazem consigo sobre suas vidas e seus valores.
+        É por isso que me interesso em ouvir as histórias das pessoas por entender que é ali que suas vidas - sofrimentos mas também sonhos - se constroem.
+      </p>
+ 
     </div>
   </div>
 </section>
@@ -113,7 +121,7 @@
   <div class="contato-grid">
 
     <!-- Ícone do WhatsApp -->
-    <a href="https://wa.me/SEU_NUMERO" target="_blank" class="contato-item">
+    <a href="https://wa.me/5517982213051" target="_blank" class="contato-item">
       <div class="contato-icon">
         <i class="fa-brands fa-whatsapp"></i>
       </div>
@@ -121,7 +129,7 @@
     </a>
 
     <!-- Ícone de telefone -->
-    <a href="tel:SEU_TELEFONE" class="contato-item">
+    <a href="tel:+5517982213051" class="contato-item">
       <div class="contato-icon">
         <i class="fa-solid fa-phone"></i>
       </div>
@@ -129,7 +137,7 @@
     </a>
 
     <!-- Ícone de email -->
-    <a href="mailto:SEU@EMAIL.COM" class="contato-item">
+    <a href="mailto:lima.crisviana@gmail.com" class="contato-item">
       <div class="contato-icon">
         <i class="fa-solid fa-envelope"></i>
       </div>
@@ -137,7 +145,7 @@
     </a>
 
     <!-- Ícone do Instagram -->
-    <a href="https://instagram.com/SEU_PERFIL" target="_blank" class="contato-item">
+    <a href="https://www.instagram.com/psi_cristianoviana?igsh=dHc3Y3BjdjcwdHpr" target="_blank" class="contato-item">
       <div class="contato-icon">
         <i class="fa-brands fa-instagram"></i>
       </div>
@@ -152,6 +160,25 @@
 </footer>
 
 <script>
+  // Esconde/mostra o header ao rolar
+
+  let ultimaPosicao = 0; // guarda a posição anterior da rolagem
+
+  window.addEventListener('scroll', function() {
+
+    let posicaoAtual = window.scrollY; // posição atual da rolagem em pixels
+
+    if (posicaoAtual > ultimaPosicao && posicaoAtual > 80) {
+      // rolou para BAIXO e já passou do header (80px) → esconde
+      document.querySelector('header').style.top = '-80px';
+    } else {
+      // rolou para CIMA → mostra
+      document.querySelector('header').style.top = '0';
+    }
+
+    ultimaPosicao = posicaoAtual; // atualiza para a próxima vez
+  });
+
   const sections = document.querySelectorAll('section[id]');
   const navLinks = document.querySelectorAll('nav a');
 
@@ -183,6 +210,5 @@
     }
   }
 </script>
-
 </body>
 </html>

@@ -28,7 +28,7 @@ body {
   line-height: 1.7;
 }
 
-/* ── HEADER ── */
+/*Header*/
 header {
   position: fixed;
   top: 0; left: 0; right: 0;
@@ -38,8 +38,9 @@ header {
   align-items: center;
   justify-content: space-between;
   padding: 0 48px;
-  height: 100px;
+  height: 115px;
   box-shadow: 0 2px 16px rgba(0,0,0,0.15);
+  transition: top 0.3s ease; /* animação suave ao esconder/mostrar */
 }
 
 .logo-box {
@@ -73,10 +74,9 @@ nav > a {
 }
 nav a:hover, nav a.active {
   color: var(--gold);
-  /*border-bottom-color: var(--gold);*/
 }
 
-/* ── SECTIONS ── */
+/* Seções*/
 section {
   min-height: 100vh;
   display: flex;
@@ -85,71 +85,91 @@ section {
   padding: 96px 48px 64px;
 }
 
-/* ── SOBRE MIM ── */
+/* Sobre mim */
 #sobre {
   background: var(--bg);
 }
 
+/* Grid principal*/
 .sobre-inner {
   display: grid;
-  grid-template-columns: 1fr 1.4fr;
-  gap: 64px;
-  max-width: 960px;
+  grid-template-columns: 1fr 1.3fr; /* coluna da foto menor que a do texto */
+  gap: 72px;
+  max-width: 1000px;
   width: 100%;
   align-items: center;
 }
 
-.foto-card {
-  background: var(--white);
-  border: 1.5px solid var(--card-border);
+/*Coluna da foto*/
+.foto-col {
+  position: relative; /* necessário para o bloco decorativo se posicionar corretamente */
+}
+
+/* Bloco colorido decorativo que aparece atrás da foto */
+.foto-col::before {
+  content: '';
+  position: absolute;
+  width: 88%;
+  height: 88%;
+  background: var(--teal-light); /* ← cor do bloco decorativo */
   border-radius: var(--radius);
-  padding: 32px 24px;
+  bottom: -16px;
+  left: -16px;
+  z-index: 0; /* fica atrás da foto */
+}
+
+/* A foto em si */
+.foto-col img {
+  width: 100%;
+  border-radius: var(--radius);
+  display: block;
+  position: relative;
+  z-index: 1; /* fica na frente do bloco decorativo */
+  box-shadow: 0 16px 48px rgba(0,0,0,0.14); /* ← intensidade da sombra */
+  min-height: 420px;   /* ← altura mínima da foto */
+  object-fit: cover;   /* preenche o espaço sem distorcer */
+  object-position: top; /* prioriza o rosto ao cortar */
+  background: var(--teal-light); /* cor de fundo se a imagem não carregar */
+}
+
+/*Coluna do texto*/
+.bio-col {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  gap: 20px;
-  box-shadow: 0 4px 24px rgba(0,0,0,0.06);
+  gap: 20px; /*espaço entre cada elemento de texto*/
 }
 
-.foto-placeholder {
-  width: 160px;
-  height: 160px;
-  border-radius: 50%;
-  border: 2.5px solid var(--card-border);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: var(--teal-light);
+/* "Olá," — saudação grande */
+.bio-col .saudacao {
+  font-family: 'Playfair Display', serif;
+  font-size: 48px;     /* ← tamanho da saudação */
+  font-weight: 400;
+  color: var(--teal);  /* ← cor da saudação */
+  line-height: 1.1;
+  letter-spacing: -1px;
 }
 
-.foto-placeholder svg {
-  width: 90px;
-  height: 90px;
-  color: var(--teal);
+/* Linha com nome e profissão */
+.bio-col .nome-destaque {
+  font-size: 20px;     /* ← tamanho do nome/profissão */
+  font-weight: 500;
+  color: var(--text);
+  line-height: 1.5;
 }
 
-.foto-label {
-  font-size: 14px;
-  color: var(--muted);
-  letter-spacing: 0.5px;
+/* Nome e profissão em negrito ficam nessa cor */
+.bio-col .nome-destaque strong {
+  color: var(--teal); /* ← cor do nome e profissão */
 }
 
-.bio-card {
-  background: var(--white);
-  border: 1.5px solid var(--card-border);
-  border-radius: var(--radius);
-  padding: 36px;
-  min-height: 280px;
-  box-shadow: 0 4px 24px rgba(0,0,0,0.06);
+/* Parágrafos da bio */
+.bio-col p {
+  font-size: 16px;     /* ← tamanho do texto corrido */
+  color: var(--muted); /* ← cor do texto — use var(--text) para mais escuro */
+  line-height: 1.8;    /* ← espaçamento entre linhas */
 }
 
-.bio-card p {
-  font-size: 15px;
-  color: var(--muted);
-  font-style: italic;
-}
-
-/* ── SERVIÇOS ── */
+/* Serviços*/
 #servicos {
   background: #f0efec;
   flex-direction: column;
@@ -201,7 +221,7 @@ section {
   flex: 1;
 }
 
-/* ── DÚVIDAS ── */
+/* Dúvidas */
 #duvidas {
   background: var(--bg);
   flex-direction: row;
@@ -272,7 +292,7 @@ section {
   margin-top: 8px;
 }
 
-/* ── CONTATO ── */
+/* Contato */
 #contato {
   background: #f0efec;
   flex-direction: column;
@@ -327,7 +347,7 @@ color: white; /* ícone vira branco ao passar o mouse */
   font-weight: 500;
 }
 
-/* ── FOOTER ── */
+/* Footer */
 footer {
   background: var(--teal-dark);
   color: rgba(255,255,255,0.5);
@@ -336,7 +356,7 @@ footer {
   font-size: 13px;
 }
 
-/* ── RESPONSIVE ── */
+/* Media Query*/
 @media (max-width: 768px) {
   header { padding: 0 10px; }
   nav { gap: 16px; }
