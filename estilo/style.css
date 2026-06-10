@@ -12,7 +12,6 @@ padding: 0;
   --text: #1a1a1a;
   --muted: #5a5a5a;
   --bg: #faf9f7;
-  --white: #ffffff;
   --card-border: #d8d3c8;
   --radius: 12px;
 }
@@ -194,7 +193,7 @@ section {
 }
 
 .servico-card {
-  background: var(--white);
+  background: white;
   border: 1.5px solid var(--card-border);
   border-radius: var(--radius);
   padding: 36px 32px;
@@ -260,7 +259,7 @@ section {
 /* Botão da pergunta */
 .faq-btn {
   width: 100%;
-  background: var(--white);
+  background: white;
   border: 1.5px solid var(--card-border);
   border-radius: var(--radius);
   padding: 20px 24px;
